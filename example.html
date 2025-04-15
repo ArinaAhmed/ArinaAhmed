@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../images/7717223_dress_fashion_clothing_clothes_feminine_icon.png">
+    <link href="../styles/example style.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home
+            <div class="main"></div>
+        </a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <div class="login-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Username" name="username">
+                <input type="text" placeholder="Password" name="psw">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    
+      <h3 style="font-family:'Bell MT'" >New Collection</h3>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="../images/pexels-ksenia-chernaya-3965551.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="../images/pexels-mart-production-7679444.jpg" style="width:100%" />
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="../images/pexels-ksenia-chernaya-3965545.jpg" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br />
+    <div class="main">
+        <div id="myBtnContainer">
+           <a href=" ex.html" button class="btn active" onclick="filterSelection('all')">Show all</a>  
+        </div>
+        <div class="row">
+            <div class="column Clothes ">
+                <div class="content">
+                    <img src="../images/pexels-edgars-kisuro-1488463.jpg"alt="Clothes" style="width:100%">
+                    <h4>Dresses</h4>
+                </div>
+            </div>
+            <div class="column Clothes">
+                <div class="content">
+                    <img src="../images/pexels-ron-lach-8311890.jpg"  alt="Clothes" style="width:100%">
+                    <h4>Suits</h4>
+                    
+                </div>
+            </div>
+            <div class="column Clothes">
+                <div class="content">
+                    <img src="../images/pexels-rachel-claire-5864245.jpg"  alt="Clothes" style="width:100%">
+                    <h4>Shirts</h4>
+                   
+                </div>
+            </div>
+
+            <div class="column Bags,Shoes">
+                <div class="content">
+                    <img src="../images/pexels-alexandra-maria-336372.jpg" alt="Bags,Shoes" style="width:100%">
+                    <h4>Heels</h4>
+                  
+                </div>
+            </div>
+            <div class="column Bags,Shoes">
+                <div class="content">
+                    <img src="../images/pexels-harper-sunday-5658856.jpg" alt="Bags,Shoes" style="width:100%">
+                    <h4>Bags</h4>
+                    
+                </div>
+            </div>
+            <div class="column Bags,Shoes">
+                <div class="content">
+                    <img src="../images/pexels-cottonbro-6594253.jpg" alt="Bags,Shoes" style="width:100%">
+                    <h4>Boots</h4>
+                   
+                </div>
+            </div>
+
+            <div class="column jewelry">
+                <div class="content">
+                    <img src="../images/pexels-the-glorious-studio-8398840.jpg"  alt="jewelry" style="width:100%">
+                    <h4>Rings</h4>
+                   
+                </div>
+            </div>
+            <div class="column jewelry">
+                <div class="content">
+                    <img src="../images/pexels-engin-akyurt-1458867.jpg" alt="jewelry" style="width:100%">
+                    <h4>Necklaces</h4>
+                   
+                </div>
+            </div>
+            <div class="column jewelry">
+                <div class="content">
+                    <img src="../images/pexels-the-glorious-studio-5370644.jpg" alt="jewelry" style="width:100%">
+                    <h4>EarRings</h4>
+                 
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+            filterSelection("all")
+            function filterSelection(c) {
+                var x, i;
+                x = document.getElementsByClassName("column");
+                if (c == "all") c = "";
+                for (i = 0; i < x.length; i++) {
+                    w3RemoveClass(x[i], "show");
+                    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+                }
+            }
+
+            function w3AddClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+                }
+            }
+
+            function w3RemoveClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+                    }
+                }
+                element.className = arr1.join(" ");
+            }
+
+
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
+            }
+        </script>
+        <br>
+
+              <p style="font-family:Aldhabi"> comming soon...!</p>
+        <p style="font-family:Aldhabi" id="demo"></p>
+
+        <script>
+
+            var countDownDate = new Date("Nov 3, 2023 00:00:00").getTime();
+
+
+            var x = setInterval(function () {
+
+
+                var now = new Date().getTime();
+
+                var distance = countDownDate - now;
+
+
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+    <br />
+        <div class="row1">
+            <div class="column1">
+                <img src="../images/pexels-ron-lach-8386657.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            </div>
+            <div class="column1">
+                <img src="../images/pexels-ron-lach-8386641.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            </div>
+            <div class="column1">
+                <img src=" ../images/pexels-roman-pohorecki-16170.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            </div>
+            <div class="column1">
+                <img src="../images/pexels-ron-lach-8386651.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img src=" ../images/pexels-ron-lach-8386657.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="../images/pexels-ron-lach-8386641.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="../images/pexels-roman-pohorecki-16170.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="../images/pexels-ron-lach-8386651.jpg" style="width:100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+
+                <div class="column">
+                    <img class="demo cursor" src=" ../images/pexels-ron-lach-8386657.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="../images/pexels-ron-lach-8386641.jpg" style="width:100%" onclick="currentSlide(2)" alt="Snow">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="../images/pexels-roman-pohorecki-16170.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="../images/pexels-ron-lach-8386651.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+    <br />
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-pinterest"></a>
+        <a href="#" class="fa fa-snapchat-ghost"></a>
+
+</body>
+</html>
